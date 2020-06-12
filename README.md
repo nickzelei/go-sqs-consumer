@@ -19,5 +19,5 @@ make build
 ## Clean
 make clean
 
-## Run it
+## Run
 ./bin/sqs-consumer
