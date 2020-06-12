@@ -1,5 +1,7 @@
 # Simple SQS Consumer
 
+Currently only prints out messages
+
 ## Config
 
 * SQS_QUEUE_URL - the https url to the SQS queue
