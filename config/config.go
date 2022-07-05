@@ -13,7 +13,6 @@ func ReadConfig() (*viper.Viper, error) {
 	viperConfig.AddConfigPath(".")
 
 	viperConfig.SetDefault("MAX_WORKERS", 1)
-	viperConfig.SetDefault("AWS_PROFILE", "default")
 
 	err := viperConfig.ReadInConfig()
 	return viperConfig, err

@@ -25,12 +25,10 @@ func consume() {
 
 	queueURL := conf.GetString("SQS_QUEUE_URL")
 	poolSize := conf.GetInt("MAX_WORKERS")
-	profile := conf.GetString("AWS_PROFILE")
 
 	fmt.Printf("Queue url: %s\n", queueURL)
-	fmt.Printf("AWS Profile: %s\n", profile)
 
-	sqsAPI := getSqs(profile)
+	sqsAPI := getSqs()
 
 	fmt.Printf("Starting %d worker(s)...\n", poolSize)
 	var wg sync.WaitGroup
@@ -94,9 +92,6 @@ func deleteMessage(sqsAPI sqsiface.SQSAPI, queueURL, receiptHandle string) error
 	return err
 }
 
-func getSqs(profile string) sqsiface.SQSAPI {
-	return sqs.New(session.Must(session.NewSessionWithOptions(session.Options{
-		SharedConfigState: session.SharedConfigEnable,
-		Profile:           profile,
-	})))
+func getSqs() sqsiface.SQSAPI {
+	return sqs.New(session.Must(session.NewSession()))
 }
