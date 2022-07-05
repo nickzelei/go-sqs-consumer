@@ -5,11 +5,11 @@ import (
 	"log"
 	"sync"
 
-	"example.com/user/sqs-consumer/config"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sqs"
 	"github.com/aws/aws-sdk-go/service/sqs/sqsiface"
+	"github.com/nickzelei/go-sqs-consumer/config"
 )
 
 func main() {
